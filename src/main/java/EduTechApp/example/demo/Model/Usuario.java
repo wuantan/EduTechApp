@@ -11,7 +11,10 @@ import java.util.Date;
 
 public class Usuario {
 
-    private String id_usuario,nombre,correo,rol;
+    private int id_usuario;
+    private String nombre_user;
+    private String mail;
+    private String rol; // estudiante, cliente, profesor, administrativo
     private Date fecha_ultimo_login;
-    private Boolean estado;
+    private String estado; // activo o inactivo
 }
