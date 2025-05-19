@@ -1,6 +1,6 @@
 package EduTechApp.example.demo.Controller;
 
-import EduTechApp.example.demo.Model.User;
+import EduTechApp.example.demo.Model.Usuario;
 import EduTechApp.example.demo.Service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -17,7 +17,7 @@ public class UserController {
 
     // Registro
     @PostMapping("/registro")
-    public String registerUser(@RequestBody User user) {
+    public String registerUser(@RequestBody Usuario user) {
         return userService.registerUser(user);
     }
 
@@ -29,13 +29,13 @@ public class UserController {
 
     // Obtener todos los usuarios
     @GetMapping
-    public List<User> getAllUsers() {
+    public List<Usuario> getAllUsers() {
         return userService.getAllUsers();
     }
 
     // Obtener un usuario por ID
     @GetMapping("/{id}")
-    public Optional<User> getUserById(@PathVariable Integer id) {
+    public Optional<Usuario> getUserById(@PathVariable Integer id) {
         return userService.getUser(id);
     }
 
@@ -48,8 +48,8 @@ public class UserController {
 
     // Actualizar un usuario
     @PutMapping("/{id}")
-    public String updateUser(@PathVariable Integer id, @RequestBody User updatedUser) {
-        Optional<User> existingUser = userService.getUser(id);
+    public String updateUser(@PathVariable Integer id, @RequestBody Usuario updatedUser) {
+        Optional<Usuario> existingUser = userService.getUser(id);
         if (existingUser.isPresent()) {
             updatedUser.setIdUsuario(id); // Asegura que se actualice el usuario correcto
             userService.updateUser(updatedUser);

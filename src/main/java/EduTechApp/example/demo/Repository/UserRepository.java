@@ -1,15 +1,15 @@
 package EduTechApp.example.demo.Repository;
-import EduTechApp.example.demo.Model.User;
+import EduTechApp.example.demo.Model.Usuario;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import java.util.Optional;
 
 @Repository
-public interface UserRepository extends JpaRepository<User, Integer> {
+public interface UserRepository extends JpaRepository<Usuario, Integer> {
 
-    Optional<User> findBymail(String email); //buscar usuario por mail
-    Optional<User> findByusername(String username); //buscar usuario por username
-    Optional<User> findByIdUsuario(Integer idUsuario);
+    Optional<Usuario> findBymail(String email); //buscar usuario por mail
+    Optional<Usuario> findByusername(String username); //buscar usuario por username
+    Optional<Usuario> findByIdUsuario(Integer idUsuario);
 
 }
