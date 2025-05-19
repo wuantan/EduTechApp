@@ -19,7 +19,10 @@ public class Cursos {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id_curso;
-    private String nom_cur,descripcion,instructor,categoria;
+    private String nom_cur;
+    private String descripcion;
+    private String instructor;
+    private String categoria;
     private int costo;
 
 }
