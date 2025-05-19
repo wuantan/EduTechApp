@@ -9,10 +9,12 @@ import java.util.Date;
 @AllArgsConstructor
 @NoArgsConstructor
 
-public class Usuario {
+public class User {
 
     private int id_usuario;
-    private String nombre_user;
+    private String username;
+    private String nombre;
+    private String password;
     private String mail;
     private String rol; // estudiante, cliente, profesor, administrativo
     private Date fecha_ultimo_login;
