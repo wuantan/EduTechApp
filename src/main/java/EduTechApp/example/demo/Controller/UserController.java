@@ -51,7 +51,7 @@ public class UserController {
     public String updateUser(@PathVariable Integer id, @RequestBody Usuario updatedUser) {
         Optional<Usuario> existingUser = userService.getUser(id);
         if (existingUser.isPresent()) {
-            updatedUser.setIdUsuario(id); // Asegura que se actualice el usuario correcto
+            updatedUser.setId_Usuario(id); // Asegura que se actualice el usuario correcto
             userService.updateUser(updatedUser);
             return "Usuario actualizado con éxito.";
         } else {
