@@ -1,12 +1,14 @@
 package EduTechApp.example.demo.Model;
 
+import jakarta.persistence.Id;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
 import java.util.Date;
 
 @Data
@@ -14,16 +16,12 @@ import java.util.Date;
 @NoArgsConstructor
 
 @Entity
-public class Usuario {
+public class Reporte {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id_Usuario;
-    private String username;
-    private String nombre;
-    private String password;
-    private String mail;
-    private String rol; // estudiante, cliente, profesor, administrativo
-    private Date fecha_ultimo_login;
-    private String estado; // activo o inactivo
+    private int id_Reporte;
+    private Date Fecha_reporte;
+    private String Nombre_reporte;
+    private String Tipo_reporte;
 }
