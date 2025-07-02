@@ -10,5 +10,5 @@ import java.util.Optional;
 
 @Repository
 public interface ReporteRepository extends JpaRepository<Reporte, Integer> {
-    List<Reporte> findByFecha_reporte(Date fecha);
+    List<Reporte> findByfechaReporte(Date fecha);
 }

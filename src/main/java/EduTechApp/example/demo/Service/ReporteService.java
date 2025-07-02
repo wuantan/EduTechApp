@@ -23,7 +23,7 @@ public class ReporteService {
     }
 
     public List<Reporte> obtenerReportePorFecha(Date fecha) {
-        return reporteRepository.findByFecha_reporte(fecha);
+        return reporteRepository.findByfechaReporte(fecha);
     }
 
     public void eliminarReporte(int id) {

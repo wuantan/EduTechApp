@@ -21,7 +21,7 @@ public class Reporte {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id_Reporte;
-    private Date Fecha_reporte;
+    private Date fechaReporte;
     private String Nombre_reporte;
     private String Tipo_reporte;
 }

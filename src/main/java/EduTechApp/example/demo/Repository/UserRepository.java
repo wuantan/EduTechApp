@@ -10,6 +10,6 @@ public interface UserRepository extends JpaRepository<Usuario, Integer> {
 
     Optional<Usuario> findBymail(String email); //buscar usuario por mail
     Optional<Usuario> findByusername(String username); //buscar usuario por username
-    Optional<Usuario> findByIdUsuario(Integer idUsuario);
+    Optional<Usuario> findByidUsuario(Integer idUsuario);
 
 }

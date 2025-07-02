@@ -46,12 +46,12 @@ public class UserService {
         return UserRepository.save(user); //
     }
 
-    public Optional<Usuario> getUser(int id) {
-        return UserRepository.findById(id);
+    public Optional<Usuario> getUser(int idUsuario) {
+        return UserRepository.findById(idUsuario);
     }
 
-    public void deleteUser(int id) {
-        UserRepository.deleteById(id);
+    public void deleteUser(int idUsuario) {
+        UserRepository.deleteById(idUsuario);
     }
 
     public List<Usuario> getAllUsers() {
