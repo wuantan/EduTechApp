@@ -23,5 +23,4 @@ public class Pago {
     private int id_Curso;
     private String metodoPago;
     private int monto;
-
 }

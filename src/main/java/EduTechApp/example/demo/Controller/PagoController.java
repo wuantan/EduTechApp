@@ -18,8 +18,8 @@ public class PagoController {
     private PagoService pagoService;
 
 
-    @PostMapping
-    public ResponseEntity<Pago> crearPago(@RequestBody Pago pago) {
+    @PostMapping("/crearPago")
+    public ResponseEntity<Pago> guardarPago(@RequestBody Pago pago) {
         Pago nuevoPago = pagoService.guardarPago(pago);
         return new ResponseEntity<>(nuevoPago, HttpStatus.CREATED);
     }

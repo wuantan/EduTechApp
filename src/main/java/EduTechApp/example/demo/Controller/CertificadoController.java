@@ -13,6 +13,7 @@ public class CertificadoController {
     @Autowired
     private CertificadoService certificadoService;
 
+
     @PostMapping("/generar")
     public ResponseEntity<Certificado> generarCertificado(
             @RequestParam String nombreCurso,
@@ -24,4 +25,6 @@ public class CertificadoController {
 
         return ResponseEntity.ok(certificado);
     }
+
+
 }
