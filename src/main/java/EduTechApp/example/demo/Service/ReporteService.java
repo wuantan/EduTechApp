@@ -29,4 +29,8 @@ public class ReporteService {
     public void eliminarReporte(int id) {
         reporteRepository.deleteById(id);
     }
+
+    public Reporte obtenerPorId(int id) {
+        return reporteRepository.findById(id).orElseThrow(() -> new RuntimeException("Reporte no encontrado"));
+    }
 }

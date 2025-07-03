@@ -23,7 +23,7 @@ public class Usuario {
     private String nombre;
     private String password;
     private String mail;
-    private String rol; // estudiante, cliente, profesor, administrativo
+    private String rol;
     private Date fecha_ultimo_login;
-    private String estado; // activo o inactivo
+    private String estado;
 }
