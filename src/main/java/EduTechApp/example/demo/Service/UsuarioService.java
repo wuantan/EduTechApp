@@ -9,15 +9,14 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class UserService {
+public class UsuarioService {
 
     @Autowired
     private UserRepository UserRepository;
 
-    //validacion de que el mail o username no este en uso, y registro de este mismo
     public String registerUser(Usuario user) {
         if (UserRepository.findBymail(user.getMail()).isPresent()) {
-            return "Error: El email ya está registrado.";
+            return "Error: El Email ya está registrado.";
         }
         if (UserRepository.findByusername(user.getUsername()).isPresent()) {
             return "Error: El nombre de usuario ya está en uso.";
@@ -26,7 +25,6 @@ public class UserService {
         return "Usuario registrado correctamente.";
     }
 
-    // Login por username y password
     public String loginUser(String username, String password) {
         Optional<Usuario> userOpt = UserRepository.findByusername(username);
         if (userOpt.isPresent()) {
@@ -43,7 +41,7 @@ public class UserService {
 
 
     public Usuario saveUser(Usuario user) {
-        return UserRepository.save(user); //
+        return UserRepository.save(user);
     }
 
     public Optional<Usuario> getUser(int idUsuario) {

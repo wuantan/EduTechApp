@@ -14,39 +14,22 @@ public class CursoService {
     @Autowired
     private CursosRepository cursosRepository;
 
-
-    public String getCursos(){
-        String output = "";
-        for(Cursos curso : cursosRepository.findAll()){
-            output += curso.getId_curso() + "\n";
-            output += curso.getNom_cur() + "\n";
-            output += curso.getDescripcion() + "\n";
-            output += curso.getInstructor() + "\n";
-            output += curso.getCategoria() + "\n";
-            output += curso.getCosto() + "\n";
-        }
-        if (output.isEmpty()) {
-            return "Aun no hay cursos";
-        } else {
-            return output;
-        }
+    public List<Cursos> getAllCursos() {
+        return cursosRepository.findAll();
     }
+
+    public Cursos getCursoEntityById(int id) {
+        return cursosRepository.findById(id).orElseThrow(() -> new RuntimeException("Curso no encontrado"));
+    }
+
     public String addCurso(Cursos newCurso){
         cursosRepository.save(newCurso);
-        return "Curso agregado con exito";
+        return "curso agregado con éxito";
     }
 
-    public String getCursoById(int id){
-        Cursos curso = cursosRepository.findById(id).orElse(null);
-        if(curso == null){
-            return "Curso no encontrado";
-        }else{
-            return curso.toString();
-        }
-    }
     public String deleteCursoById(int id){
         cursosRepository.deleteById(id);
-        return "Curso eliminado con exito";
+        return "Curso eliminado con éxito";
     }
 
     public String updateCursoById(int id, Cursos newCurso){
@@ -57,12 +40,12 @@ public class CursoService {
             curso.setNom_cur(newCurso.getNom_cur());
             curso.setDescripcion(newCurso.getDescripcion());
             curso.setInstructor(newCurso.getInstructor());
+            curso.setCategoria(newCurso.getCategoria());
+            curso.setCosto(newCurso.getCosto());
+            cursosRepository.save(curso);
+            return "Curso actualizado con éxito";
         }
-        return "Curso actualizado con exito";
     }
 
-    public List<Cursos> getAllCursos() {
-        return cursosRepository.findAll();
-    }
 
 }

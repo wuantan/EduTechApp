@@ -17,9 +17,8 @@ public class PagoController {
     @Autowired
     private PagoService pagoService;
 
-
-    @PostMapping("/crearPago")
-    public ResponseEntity<Pago> guardarPago(@RequestBody Pago pago) {
+    @PostMapping
+    public ResponseEntity<Pago> crearPago(@RequestBody Pago pago) {
         Pago nuevoPago = pagoService.guardarPago(pago);
         return new ResponseEntity<>(nuevoPago, HttpStatus.CREATED);
     }
