@@ -63,12 +63,12 @@ public class ReporteTest {
     @Test
     @DisplayName("Test eliminar reporte")
     void EliminarReporteTest()  {
-        when(reporteServiceMock.obtenerReporte(1)).thenReturn(new Reporte());
-        Reporte reporte = reporteServiceMock.obtenerReporte(1);
+        when(reporteServiceMock.obtenerPorId(1)).thenReturn(new Reporte());
+        Reporte reporte = reporteServiceMock.obtenerPorId(1);
         assertNotNull(reporte);
         reporteServiceMock.eliminarReporte(1);
-        when(reporteServiceMock.obtenerReporte(1)).thenReturn(null);
-        assertNull(reporteServiceMock.obtenerReporte(1));
+        when(reporteServiceMock.obtenerPorId(1)).thenReturn(null);
+        assertNull(reporteServiceMock.obtenerPorId(1));
     }
 
 }

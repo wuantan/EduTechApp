@@ -14,8 +14,7 @@ import org.springframework.test.web.servlet.MockMvc;
 
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.when;
 
 @SpringBootTest
@@ -41,18 +40,50 @@ public class CursosTest {
 
     @Test
     @DisplayName("FindById CURSO NO ENCONTRADO")
-    void testFindByIdNotFound(){
-        when(cursoServiceMock.getCursoById(999)).thenReturn("Curso no encontrado");
+    void testFindByIdNotFound() {
+        // Configuramos el mock para que lance una excepción cuando se busque el ID 999
+        when(cursoServiceMock.getCursoEntityById(999))
+                .thenThrow(new RuntimeException("Curso no encontrado"));
 
-        String resultado = cursoServiceMock.getCursoById(999);
+        // Verificamos que se lance la excepción
+        RuntimeException exception = assertThrows(RuntimeException.class, () -> {
+            cursoServiceMock.getCursoEntityById(999);
+        });
 
-        assertEquals("Curso no encontrado", resultado);
+        // Verificamos que el mensaje de la excepción sea el esperado
+        assertEquals("Curso no encontrado", exception.getMessage());
     }
+
+
+
 
     @Test
     @DisplayName("FindById CURSO ENCONTRADO")
-    void testFindByIdFound(){
-        when(cursoServiceMock.getCursoById(1)).thenReturn("Curso encontrado");
+    void testFindByIdFound() {
+        // Crear un curso de prueba
+        Cursos cursoEsperado = new Cursos();
+        cursoEsperado.setId_curso(1);
+        cursoEsperado.setNom_cur("Java Programming");
+        cursoEsperado.setDescripcion("Curso de Java");
+        cursoEsperado.setInstructor("Juan Pérez");
+        cursoEsperado.setCategoria("Programación");
+        cursoEsperado.setCosto(100);
+
+        // Configurar el mock para que retorne el curso cuando se busque el ID 1
+        when(cursoServiceMock.getCursoEntityById(1)).thenReturn(cursoEsperado);
+
+        // Ejecutar el método y obtener el resultado
+        Cursos resultado = cursoServiceMock.getCursoEntityById(1);
+
+        // Verificaciones
+        assertNotNull(resultado);
+        assertEquals(cursoEsperado.getId_curso(), resultado.getId_curso());
+        assertEquals(cursoEsperado.getNom_cur(), resultado.getNom_cur());
+        assertEquals(cursoEsperado.getDescripcion(), resultado.getDescripcion());
+        assertEquals(cursoEsperado.getInstructor(), resultado.getInstructor());
+        assertEquals(cursoEsperado.getCategoria(), resultado.getCategoria());
+        assertEquals(cursoEsperado.getCosto(), resultado.getCosto());
     }
+
 
 }

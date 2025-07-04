@@ -2,7 +2,7 @@ package EduTechApp.example.demo;
 
 import EduTechApp.example.demo.Model.Usuario;
 import EduTechApp.example.demo.Repository.UserRepository;
-import EduTechApp.example.demo.Service.UserService;
+import EduTechApp.example.demo.Service.UsuarioService;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,7 +27,7 @@ class UsuarioTest {
     @Autowired
     MockMvc mockMvc;
     @Autowired
-    UserService userServiceMock;
+    UsuarioService userServiceMock;
 
     @Test
     @DisplayName("GetAll Test")
