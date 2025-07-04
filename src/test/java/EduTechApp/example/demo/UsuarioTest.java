@@ -53,6 +53,8 @@ class UsuarioTest {
         Usuario usuario = userServiceMock.getUser(1).get();
         assertNotNull(usuario);
         userServiceMock.deleteUser(1);
+        when(userServiceMock.getUser(1)).thenReturn(java.util.Optional.empty());
+        assertTrue(userServiceMock.getUser(1).isEmpty());
     }
 
 }

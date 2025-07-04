@@ -17,6 +17,10 @@ public class CertificadoService {
         certificado.setFechaCertificado(new Date());
         certificado.setEstadoCurso(true);
 
+        if (certificado.getNombreCurso() == null || certificado.getNombreEstudiante() == null ||
+            certificado.getNombreProfesor() == null) {
+            throw new IllegalArgumentException("Datos del certificado incompletos");
+        }
         return certificado;
     }
 }

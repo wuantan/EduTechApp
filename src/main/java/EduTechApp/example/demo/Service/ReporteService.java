@@ -29,4 +29,8 @@ public class ReporteService {
     public void eliminarReporte(int id) {
         reporteRepository.deleteById(id);
     }
+
+    public Reporte obtenerReporte(int id) {
+        return reporteRepository.getById(id);
+    }
 }

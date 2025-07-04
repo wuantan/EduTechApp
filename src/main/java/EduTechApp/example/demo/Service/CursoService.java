@@ -1,9 +1,12 @@
 package EduTechApp.example.demo.Service;
 
+import EduTechApp.example.demo.Model.Usuario;
 import EduTechApp.example.demo.Repository.CursosRepository;
 import EduTechApp.example.demo.Model.Cursos;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class CursoService {
@@ -57,4 +60,9 @@ public class CursoService {
         }
         return "Curso actualizado con exito";
     }
+
+    public List<Cursos> getAllCursos() {
+        return cursosRepository.findAll();
+    }
+
 }
