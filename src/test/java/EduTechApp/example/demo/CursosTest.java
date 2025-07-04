@@ -60,7 +60,7 @@ public class CursosTest {
     @Test
     @DisplayName("FindById CURSO ENCONTRADO")
     void testFindByIdFound() {
-        // Crear un curso de prueba
+
         Cursos cursoEsperado = new Cursos();
         cursoEsperado.setId_curso(1);
         cursoEsperado.setNom_cur("Java Programming");
@@ -69,13 +69,10 @@ public class CursosTest {
         cursoEsperado.setCategoria("Programación");
         cursoEsperado.setCosto(100);
 
-        // Configurar el mock para que retorne el curso cuando se busque el ID 1
         when(cursoServiceMock.getCursoEntityById(1)).thenReturn(cursoEsperado);
 
-        // Ejecutar el método y obtener el resultado
         Cursos resultado = cursoServiceMock.getCursoEntityById(1);
 
-        // Verificaciones
         assertNotNull(resultado);
         assertEquals(cursoEsperado.getId_curso(), resultado.getId_curso());
         assertEquals(cursoEsperado.getNom_cur(), resultado.getNom_cur());
